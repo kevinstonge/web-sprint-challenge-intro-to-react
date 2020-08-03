@@ -5,7 +5,7 @@ const CharacterDetail = (props) => {
   const [data, setData] = useState({ name: "[...loading]" });
   useEffect(() => {
     axios
-      .get(props.call)
+      .get(props.call.replace("http:", "https:"))
       .then((r) => {
         if (r.data.name && r.data.name.length > 0) {
           setData({ name: r.data.name });
