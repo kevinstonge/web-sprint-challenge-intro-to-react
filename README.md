@@ -30,11 +30,25 @@ Be prepared to demonstrate your understanding of this week's concepts by answeri
 
 1. What is React JS and what problems does it solve? Support your answer with concepts introduced in class and from your personal research on the web.
 
+React is a library for creating websites in a way that breaks the site down into multiple reusable chunks of code called 'components'.
+
+One problem that this solves is that it reduces redundancy in the development code: A component is just a small piece of the final website, and most components are written once and used many time throughout the project. For example, on Twitter each tweet is rendered inside of a card, if written in react, the card would be a component that is written once but used every time any tweet is diaplayed. The card component could also be broken down into smaller sub-components, a component to display the user's profile picture, their name, the number of likes, etc.
+
+React also solves the tedeous process of creating and modifying DOM elements. React provides a special syntax called JSX that lets you create DOM elements by simply typing what looks almost identical to normal HTML. Behind the scenes, React parses all of the JSX you wrote to create and update dom elements.
+
 1. Describe component state.
+
+Components can have state, or be stateless. For components with state, there are variables that the component will monitor for changes, when those variables change, the component will re-render in the browser to display the results of the JSX parsing with the new state variables. For example, on twitter, a state variable might be the number of likes a tweet has. When a user clicks the like button, the stored state value for the number of likes changes, so the DOM re-renders to display the new number on the page.
 
 1. Describe props.
 
+props are values that are passed into a component from a parent component. props behave within the child component much like state variables. If the props passed into the component change, the component re-renders with the new prop values. Functions can also be passed as props, which is often used to allow child components to alter the state of their parent component.
+
 1. What are side effects, and how do you sync effects in a React component to changes of certain state or props?
+
+Side effects are functions that can run after a component has rendered, and those functions can be used to change the state of the component. You can specify what variable changes will trigger the side effect to run with a dependency array. The syntax is to invoke the 'useEffect' function and pass it two arguments, the first is the callback function you want to run, and the second is the array of variables that you want to trigger the execution of the callback:
+
+useEffect(()=>{//code},[dependency1,dependency2])
 
 You are expected to be able to answer questions in these areas. Your responses contribute to your Sprint Challenge grade.
 
@@ -104,6 +118,6 @@ After finishing your required elements, you can push your work further. These go
 
 Follow these steps for completing your project.
 
-- [ ] Submit a Pull-Request to merge `<firstName-lastName>` Branch into `main` branch (student's  Repo). **Please don't merge your own pull request**
+- [ ] Submit a Pull-Request to merge `<firstName-lastName>` Branch into `main` branch (student's Repo). **Please don't merge your own pull request**
 - [ ] Add your team lead as a reviewer on the pull-request
 - [ ] Your team lead will count the project as complete after receiving your pull-request
